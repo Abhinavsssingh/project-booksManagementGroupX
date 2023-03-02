@@ -54,7 +54,7 @@ const loginuser = async function (req, res) {
 
     let{email,password} = data
     
-    if (Object.keys(data) == 0) {
+    if (Object.keys(data).length == 0) {
       return res.status(400).send({ status: false, message: "No input provided" });
     }
     if (!email) { return res.status(400).send({ status: false, message: "email is missing" }) }
