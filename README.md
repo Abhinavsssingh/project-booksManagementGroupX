@@ -1,7 +1,5 @@
 # Project-3-BookManagement
 
-# Lithium
-
 ## Project - Books Management
 
 ### Key points
