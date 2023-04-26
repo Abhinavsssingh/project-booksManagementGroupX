@@ -1,5 +1,5 @@
 const BookModel = require("../models/bookModel")
-const moment = require('moment')
+// const moment = require('moment')
 const validators = require('../validator/validator')
 const { isValidObjectId } = require("mongoose")
 const reviewModel = require("../models/reviewModel")
@@ -92,9 +92,9 @@ const getBookById = async function (req, res) {
         if (!bookId) {
             return res.status(400).send({ msg: "please input book ID" })
         }
-        if (!isValidObjectId(bookId)) {
+        if (!isValidObjectId(bookId)){ 
             return res.status(400).send({ status: false, msg: "bookId is not valid" })
-        }
+               }
         let bookData = await BookModel.findById({ _id: bookId, isDeleted: false }).lean()
         if (!bookData) {
             return res.status(404).send({ msg: "no book found/already deleted" })

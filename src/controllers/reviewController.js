@@ -121,17 +121,11 @@ const deleteReview = async function(req, res){
         if (checkReviewIdExist.isDeleted == true) {
             return res.status(400).send({ status: false, message: "review is already deleted" })
         }
-
-
-
        const deletedReview = await reviewModel.findOneAndUpdate(
            {_id : reviewId,bookId:bookId},
            {$set : {isDeleted:true}},
            {new:true}
-
-
        )
-
        if(!deletedReview){
            return res.status(400).send({status :false, messaage : "review id is not associated with book id" })
        }
